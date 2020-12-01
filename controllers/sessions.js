@@ -3,6 +3,8 @@ const express = require('express');
 const sessions = express.Router();
 const User = require('../models/users.js');
 
+
+
 // sign in
 sessions.post('/', (req, res) => {
   User.findOne({ username: req.body.username }, (error, foundUser) => {

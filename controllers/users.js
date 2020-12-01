@@ -4,6 +4,8 @@ const router = express.Router()
 const User = require("../models/users.js");
 
 
+
+// users index
 router.get('/', (req, res) => {
   User.find({currentUser: req.session.currentUser }, (error, registerUser) => {
     if (error)
