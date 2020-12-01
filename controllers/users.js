@@ -1,8 +1,6 @@
 const express = require('express')
 const router = express.Router()
 
-
-
 // register
 router.post('/register', (req, res) => {
 User.find({username: `${req.body.username}`}, (err, results) => {
@@ -31,10 +29,10 @@ User.find({username: `${req.body.username}`}, (err, results) => {
         })
     }
 })
+})
 
 
 router.get('/', (req, res) => {
   res.send('index')
 })
-
 module.exports = router
