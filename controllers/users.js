@@ -1,4 +1,5 @@
 const express = require('express')
+const bcrypt = require('bcrypt');
 const router = express.Router()
 const User = require("../models/users.js");
 
@@ -24,11 +25,11 @@ User.find({username: `${req.body.username}`}, (err, results) => {
     const userPassword = req.body.password
        const securePassword = bcrypt.hashSync(userPassword, bcrypt.genSaltSync(10))
        const userProfile = ({
-         username: req.body.username,
-         password: securePassword,
          name: req.body.name,
-         email: req.body.email,
+         username: req.body.username,
          phone: req.body.phone,
+         email: req.body.email,
+         password: securePassword,
        })
 
         User.create(userProfile, (error, createdUser) => {
@@ -42,7 +43,4 @@ User.find({username: `${req.body.username}`}, (err, results) => {
   })
 })
 
-router.get('/', (req, res) => {
-  res.send('index')
-})
 module.exports = router
