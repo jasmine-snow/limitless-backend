@@ -19,7 +19,7 @@ router.post('/', async (req, res) => {
     if (error)
       res.status(400).json({ error: error.message });
     else {
-      console.log('Created:', createdPost)
+      console.log('Created one post:', createdPost)
       res.status(200).json(createdPost)
     }
   })
@@ -30,8 +30,31 @@ router.get('/id/:id', (req, res) => {
     if (error)
       res.status(400).json({error: error.message});
     else
+    console.log('Show one post:', foundOnePost)
       res.status(200).json(foundOnePost);
   })
 })
+
+router.delete('/:id', (req, res) => {
+  Articles.findByIdAndRemove(req.params.id, (err, deletedPost) => {
+    if (err)
+      res.status(400).json({ error: err.message });
+    else {
+      console.log('Deleted Post:', deletedPost)
+      res.status(200).json(deletedPost);
+    }
+  })
+})
+
+router.put('/:id', (req, res) => {
+  Articles.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedPost) => {
+    if (err)
+      res.status(400).json({ error: err.message });
+    else {
+      console.log('Updated Post:', updatedPost);
+      res.status(200).json(updatedPost)
+    }
+  });
+});
 
 module.exports = router;
