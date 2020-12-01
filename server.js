@@ -4,11 +4,27 @@ const mongoose = require('mongoose')
 const session = require('express-session');
 const app = express()
 const PORT = 3003;
+const cors = require('cors')
+
+
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+// cors
+const whitelist = ['http://localhost:3000']
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+app.use(cors(corsOptions))
 
 // sessions
 app.use(session({
