@@ -1,5 +1,16 @@
 const express = require('express')
 const router = express.Router()
+const User = require("../models/users.js");
+
+
+router.get('/', (req, res) => {
+  User.find({currentUser: req.session.currentUser }, (error, registerUser) => {
+    if (error)
+      res.status(400).json({error: error.message});
+    else
+      res.status(200).json(registerUser);
+    });
+});
 
 // register
 router.post('/register', (req, res) => {
@@ -28,9 +39,8 @@ User.find({username: `${req.body.username}`}, (err, results) => {
          res.status(200).json(createdUser)
         })
     }
+  })
 })
-})
-
 
 router.get('/', (req, res) => {
   res.send('index')
