@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
       res.status(400).json({error: error.message});
     else
       res.status(200).json(foundPost);
-  });
-});
+  })
+})
 
 router.post('/', async (req, res) => {
   Articles.create(req.body, (error, createdPost) => {
@@ -22,7 +22,16 @@ router.post('/', async (req, res) => {
       console.log('Created:', createdPost)
       res.status(200).json(createdPost)
     }
-  });
-});
+  })
+})
+
+router.get('/id/:id', (req, res) => {
+	Articles.findById(req.params.id, (error, foundOnePost) => {
+    if (error)
+      res.status(400).json({error: error.message});
+    else
+      res.status(200).json(foundOnePost);
+  })
+})
 
 module.exports = router;
