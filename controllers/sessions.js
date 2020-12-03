@@ -25,7 +25,7 @@ sessions.post('/', (req, res) => {
 });
 
 // logout
-sessions.delete('/', (req, res) => {
+sessions.delete('/logout/:id', (req, res) => {
   req.session.destroy((error) => {
     if (error)
       res.status(400).json({error: error.message});
