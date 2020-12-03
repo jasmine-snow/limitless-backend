@@ -17,6 +17,7 @@ sessions.post('/', (req, res) => {
       if (bcrypt.compareSync(req.body.password, foundUser.password)) {
         req.session.currentUser = foundUser
         res.status(200).json(foundUser)
+        console.log("logged in: ", foundUser)
       } else {
         res.status(401).json({error: "not a match"});
       }
@@ -25,12 +26,13 @@ sessions.post('/', (req, res) => {
 });
 
 // logout
-sessions.delete('/logout/:id', (req, res) => {
+sessions.delete('/:id', (req, res) => {
   req.session.destroy((error) => {
     if (error)
       res.status(400).json({error: error.message});
     else
       res.status(200).json();
+      console.log("logged out")
   })
 });
 
