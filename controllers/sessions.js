@@ -25,15 +25,33 @@ sessions.post('/', (req, res) => {
   })
 });
 
-// logout
-sessions.delete('/:id', (req, res) => {
-  req.session.destroy((error) => {
-    if (error)
-      res.status(400).json({error: error.message});
-    else
-      res.status(200).json();
-      console.log("logged out")
-  })
-});
 
+// logout
+// sessions.get('/:id', (req, res) => {
+//   User.findOne({ email: req.body.email }, (error, foundUser) => {
+//     if (error) {
+//       console.log(error);
+//       res.status(400).json({error: error.message});
+//     } else if (!foundUser) {
+//       res.status(400).json({error: "Already logged out"});
+//     } else {
+//       if (req.session.currentUser = foundUser) {
+//          req.session.destroy((error) => {
+//         res.redirect('/login')
+//       })
+//       }
+//     }
+//   })
+// });
+
+
+// await req.session.destroy((error) => {
+// res.redirect('/login')
+// })
+// if (error)
+//   res.status(400).json({error: error.message});
+// else
+//   res.status(200).json();
+//   res.redirect('/login')
+//   console.log("logged out")
 module.exports = sessions;
