@@ -31,7 +31,7 @@ User.find({username: `${req.body.username}`}, (err, results) => {
          username: req.body.username,
          phone: req.body.phone,
          email: req.body.email,
-         password: securePassword,
+         password: securePassword
        })
 
         User.create(userProfile, (error, createdUser) => {
