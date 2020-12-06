@@ -1,21 +1,36 @@
 const express = require('express')
 const router = express.Router()
 const Articles = require("../models/articles.js")
+const User = require('../models/users.js');
 
 
 
-
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   Articles.find({}, (error, foundPost) => {
     if (error)
       res.status(400).json({error: error.message});
     else
       res.status(200).json(foundPost);
   })
+  
+// try {
+//   const findAllArticles = await Articles.find().populate('users')
+//   res.json({
+//     foundPost: findAllArticles,
+//     message: "found all of the articles"
+//   })
+// } catch (err) {
+//   console.error(err)
+// }
+
 })
 
-router.post('/', async (req, res) => {
-  Articles.create(req.body, (error, createdPost) => {
+router.post('/', (req, res) => {
+  const ArticleData = {...req.body}
+
+  console.log("this is the session:", req.session)
+  ArticleData.userId =  req.session.currentUser._id
+  Articles.create(ArticleData, (error, createdPost) => {
     if (error)
       res.status(400).json({ error: error.message });
     else {

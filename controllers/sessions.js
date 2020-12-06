@@ -7,18 +7,19 @@ const User = require('../models/users.js');
 
 
 
-sessions.get('/login', (req, res) => {
-  User.find({currentUser: req.session.currentUser }, (error, login) => {
-    if (error)
-    res.status(400).json({error: error.message});
-  else
-    res.status(200).json(login);
-    });
-});
+// sessions.get('/login', (req, res) => {
+//   User.find({currentUser: req.session.currentUser }, (error, login) => {
+//     if (error)
+//     res.status(400).json({error: error.message});
+//   else
+//     res.status(200).json(login);
+//     });
+// });
 
 // sign in
 sessions.post('/', (req, res) => {
-  User.findOne({ username: req.body.username }, (error, foundUser) => {
+  console.log(req.body)
+  User.findOne({ email: req.body.email }, (error, foundUser) => {
     if (error) {
       console.log(error);
       res.status(400).json({error: error.message});
