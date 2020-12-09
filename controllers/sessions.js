@@ -4,18 +4,6 @@ const sessions = express.Router();
 const User = require('../models/users.js');
 
 
-
-
-
-// sessions.get('/login', (req, res) => {
-//   User.find({currentUser: req.session.currentUser }, (error, login) => {
-//     if (error)
-//     res.status(400).json({error: error.message});
-//   else
-//     res.status(200).json(login);
-//     });
-// });
-
 // sign in
 sessions.post('/', (req, res) => {
   console.log(req.body)
@@ -47,8 +35,6 @@ sessions.delete('/', (req, res) => {
       console.log("logged out")
   })
 });
-
-
 
 
 module.exports = sessions;

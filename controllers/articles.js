@@ -13,16 +13,6 @@ router.get('/', async (req, res) => {
       res.status(200).json(foundPost);
   })
 
-// try {
-//   const findAllArticles = await Articles.find().populate('users')
-//   res.json({
-//     foundPost: findAllArticles,
-//     message: "found all of the articles"
-//   })
-// } catch (err) {
-//   console.error(err)
-// }
-
 })
 
 
@@ -51,21 +41,6 @@ router.get('/id/:id', (req, res) => {
   })
 })
 
-
-router.post('/comments/:id', (req, res) => {
-  const comment = new Comment(req.body);
-    comment.save()
-    .then(comment => {
-      return Articles.findById(req.params.articleId);
-    })
-    .then(article => {
-      article.comments.unshift(comment);
-      return article.save();
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
 
 
 router.delete('/:id', (req, res) => {
