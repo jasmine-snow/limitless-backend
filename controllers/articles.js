@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     else
       res.status(200).json(foundPost);
   })
-  
+
 // try {
 //   const findAllArticles = await Articles.find().populate('users')
 //   res.json({
@@ -24,6 +24,7 @@ router.get('/', async (req, res) => {
 // }
 
 })
+
 
 router.post('/', (req, res) => {
   const ArticleData = {...req.body}
@@ -49,6 +50,23 @@ router.get('/id/:id', (req, res) => {
       res.status(200).json(foundOnePost);
   })
 })
+
+
+router.post('/comments/:id', (req, res) => {
+  const comment = new Comment(req.body);
+    comment.save()
+    .then(comment => {
+      return Articles.findById(req.params.articleId);
+    })
+    .then(article => {
+      article.comments.unshift(comment);
+      return article.save();
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 
 router.delete('/:id', (req, res) => {
   Articles.findByIdAndRemove(req.params.id, (err, deletedPost) => {

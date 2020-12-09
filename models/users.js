@@ -6,6 +6,8 @@ const usersSchema = mongoose.Schema({
     phone: {type: String, required: false},
     email: {type: String, required: true, unique: true},
     password: { type: String, required: true },
-})
+  }, {
+    timestamps: { currentTime: () => Math.floor(Date.now() / 1000) }
+  });
 
-module.exports = mongoose.model('Users', usersSchema)
+  module.exports = mongoose.model('Users', usersSchema)
