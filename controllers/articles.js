@@ -5,9 +5,9 @@ const User = require('../models/users.js');
 
 
 
-router.get('/', async (req, res) => {
+router.get('/', (req, res) => {
   Articles.find({}, (error, foundPost) => {
-    if (error)  
+    if (error)
       res.status(400).json({error: error.message});
     else
       res.status(200).json(foundPost);
