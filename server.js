@@ -3,7 +3,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const session = require('express-session');
 const app = express()
-const PORT = 3003;
+const PORT = process.env.PORT || 3005;
 const cors = require('cors')
 
 
@@ -13,7 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 // cors
-const whitelist = ['http://localhost:3000']
+
+const whitelist = ['https://limitless-frontend.herokuapp.com', 'http://localhost:3000']
 const corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
@@ -52,9 +53,11 @@ const sessionsController = require('./controllers/sessions.js')
 app.use('/login', sessionsController)
 
 // mongoose connection
+const mongoURI = process.env.MONGODB_URI + "/articles"
+
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
-mongoose.connect('mongodb://localhost:27017/articles', {
+mongoose.connect(mongoURI, {
     useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true
 })
 mongoose.connection.once('open', ()=>{
