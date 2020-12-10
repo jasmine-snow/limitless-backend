@@ -29,8 +29,9 @@ const corsOptions = {
 app.use(cors(corsOptions))
 
 // sessions
+app.set('trust proxy', 1)
 app.use(session({
-    cookie: { maxAge: 86400000 },
+    cookie: { secure: true },
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
