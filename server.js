@@ -31,7 +31,7 @@ app.use(cors(corsOptions))
 // sessions
 app.use(session({
     secret: process.env.SECRET,
-    resave: true,
+    resave: false,
     saveUninitialized: false,
 }))
 
@@ -58,7 +58,10 @@ const mongoURI = process.env.MONGODBURI + "/articles"
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
 mongoose.connect(mongoURI, {
-    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true
 })
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...')
