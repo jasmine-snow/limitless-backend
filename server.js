@@ -53,7 +53,7 @@ const sessionsController = require('./controllers/sessions.js')
 app.use('/login', sessionsController)
 
 // mongoose connection
-const mongoURI = process.env.MONGODB_URI + "/articles"
+const mongoURI = process.env.MONGODBURI + "/articles"
 
 mongoose.connection.on('error', err => console.log(err.message + ' is Mongod not running?'))
 mongoose.connection.on('disconnected', () => console.log('mongo disconnected'))
