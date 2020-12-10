@@ -30,6 +30,10 @@ app.use(cors(corsOptions))
 
 // sessions
 app.use(session({
+    cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000
+    }),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
