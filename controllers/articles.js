@@ -5,7 +5,7 @@ const User = require('../models/users.js');
 
 
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
   const ArticleData = {...req.body}
   console.log("this is the session:", req.session)
     ArticleData.userId =  req.session.currentUser._id
