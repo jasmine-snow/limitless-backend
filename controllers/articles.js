@@ -6,14 +6,17 @@ const User = require('../models/users.js');
 
 
 router.get('/', (req, res) => {
-  Articles.find({}, (error, foundPost) => {
-    if (error)
-      res.status(400).json({error: error.message});
-    else
-      res.status(200).json(foundPost);
-  })
+  const ArticleData = {...req.body}
+  console.log("this is the session:", req.session)
+    ArticleData.userId =  req.session.currentUser._id
+    Articles.find({}, (error, foundPost) => {
+      if (error)
+        res.status(400).json({error: error.message});
+      else
+        res.status(200).json(foundPost);
+    })
 
-})
+  })
 
 
 router.post('/', (req, res) => {
