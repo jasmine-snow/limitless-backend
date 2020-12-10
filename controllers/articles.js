@@ -17,10 +17,12 @@ router.get('/', (req, res) => {
 
 
 router.post('/', (req, res) => {
+  console.log("HERE:", req)
   const ArticleData = {...req.body}
 
   console.log("this is the session:", req.session)
   ArticleData.userId =  req.session.currentUser._id
+  console.log("article data:", ArticleData)
   Articles.create(ArticleData, (error, createdPost) => {
     if (error)
       res.status(400).json({ error: error.message });
