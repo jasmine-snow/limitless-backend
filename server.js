@@ -14,7 +14,7 @@ app.use(express.urlencoded({extended: true}));
 
 // cors
 
-const whitelist = ['https://limitless-frontend.herokuapp.com', 'http://localhost:3000']
+const whitelist = ['https://limitless-frontend.herokuapp.com', 'http://localhost:3000', 'https://fifth-hour-backend.herokuapp.com']
 const corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
