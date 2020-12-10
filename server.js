@@ -32,7 +32,7 @@ app.use(cors(corsOptions))
 app.use(session({
     cookie: { maxAge: 86400000 },
     secret: process.env.SECRET,
-    resave: true,
+    resave: false,
     saveUninitialized: false
 }))
 
