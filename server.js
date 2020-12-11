@@ -14,19 +14,25 @@ app.use(express.urlencoded({extended: true}));
 
 // cors
 
-const whitelist = ['https://limitless-frontend.herokuapp.com', 'http://localhost:3000', 'https://fifth-hour-backend.herokuapp.com']
-const corsOptions = {
-  credentials: true,
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1 || origin === undefined) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// const whitelist = ['https://limitless-frontend.herokuapp.com', 'http://localhost:3000', 'https://fifth-hour-backend.herokuapp.com']
+// const corsOptions = {
+//   credentials: true,
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1 || origin === undefined) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 
-app.use(cors(corsOptions))
+// app.use(cors(corsOptions))
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'https://limitless-frontend.herokuapp.com'],
+  credentials: true,
+  optionsSuccessStatus: 200, 
+}))
 
 // sessions
 app.set('trust proxy', 1)
