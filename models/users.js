@@ -11,6 +11,5 @@ const usersSchema = mongoose.Schema({
   });
 
 
-  { writeConcern: { w: "majority" , wtimeout: 5000 } }
 
   module.exports = mongoose.model('Users', usersSchema)

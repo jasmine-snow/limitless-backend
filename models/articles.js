@@ -10,7 +10,6 @@ const articlesSchema = mongoose.Schema({
   timestamps: { currentTime: () => Math.floor(Date.now() / 1000) }
 })
 
-{ writeConcern: { w: "majority" , wtimeout: 5000 } }
 
 
 module.exports = mongoose.model('Articles', articlesSchema)
