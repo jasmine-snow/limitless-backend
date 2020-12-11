@@ -54,16 +54,16 @@ https://github.com/jasmine-snow/limitless-backend
 
 
 ### Login Page
-![one](./img/wireframes/1.png)
+![one](./img/1.png)
 
 ### Register Up
-![two](./img/wireframes/2.png)
+![two](./img/2.png)
 
 ### Feed
-![three](./img/wireframes/3.png)
+![three](./img/3.png)
 
 ### Show
-![four](./img/wireframes/4.png)
+![four](./img/4.png)
 
 
 
