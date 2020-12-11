@@ -7,19 +7,28 @@ LimitLess is a full stack CRUD application built with Mern Stack and React as a 
 
 ## Screenshots!
 
+
+
 ### Home
-![one](./limitless-frontend/src/components/img/screenshots1.png)
+![one](./img/1.png)
+
+
 
 ### Post
-![two](./limitless-frontend/src/components/img/screenshots2.png)
+![two](./img/2.png)
+
+
 
 ### Login
-![three](./limitless-frontend/src/components/img/screenshots3.png)
+![three](./img/3.png)
+
+
 
 ### Feed
-![four](./limitless-frontend/src/components/img/screenshots4.png)
+![four](./img/4.png)
 
-/Users/jasmine/desktop/ga/project_4/img
+
+
 ### Technologies
 
 * Mern Stack
@@ -54,24 +63,30 @@ https://github.com/jasmine-snow/limitless-backend
 
 
 ### Login Page
-![one](./limitless-frontend/src/components/img/1.png)
+![one](./img/screenshots1.png)
 
 ### Register Up
-![two](./limitless-frontend/src/components/img/2.png)
+![two](./img/screenshots1.png)
 
 ### Feed
-![three](./limitless-frontend/src/components/img/3.png)
+![three](./img/screenshots1.png)
 
 ### Show
-![four](./limitless-frontend/src/components/img/4.png)
+![four](./img/screenshots1.png)
 
 
 
 
 
 ## Resources:
+  * General Assembly
   * https://www.youtube.com/watch?v=47OqlhksNIA&app=desktop
   * https://onury.io/accesscontrol/?content=guide
   * https://soshace.com/implementing-role-based-access-control-in-a-node-js-application/
   * https://github.com/expressjs/session#options
   * https://medium.com/@brandon.lau86/one-to-many-relationships-with-mongodb-and-mongoose-in-node-express-d5c9d23d93c2
+  * https://www.itsolutionstuff.com/post/password-and-confirm-password-validation-in-reactexample.html
+  * https://reactrouter.com/web/guides/quick-start
+  * https://hdtuto.com/article/react-js-password-and-confirm-password-validation-example
+  * https://devhints.io/react
+  * https://www.youtube.com/watch?v=zSt5G3s3OJI
