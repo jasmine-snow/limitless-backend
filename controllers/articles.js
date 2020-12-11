@@ -21,7 +21,7 @@ router.post('/', (req, res) => {
   const ArticleData = {...req.body}
 
   console.log("this is the session:", req.session)
-  ArticleData.userId =  req.session.currentUser._id
+  // ArticleData.userId =  req.session.currentUser._id
   console.log("article data:", ArticleData)
   Articles.create(ArticleData, (error, createdPost) => {
     if (error)
