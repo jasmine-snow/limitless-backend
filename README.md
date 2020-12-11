@@ -8,16 +8,16 @@ LimitLess is a full stack CRUD application built with Mern Stack and React as a 
 ## Screenshots!
 
 ### Home
-![one](/img/screenshots/1.png)
+![one](./img/screenshots/1.png)
 
 ### Post
-![two](/img/screenshots/2.png)
+![two](./img/screenshots/2.png)
 
 ### Login
-![three](/img/screenshots/3.png)
+![three](./img/screenshots/3.png)
 
 ### Feed
-![four](/img/screenshots/4.png)
+![four](./img/screenshots/4.png)
 
 
 ### Technologies
@@ -54,16 +54,16 @@ https://github.com/jasmine-snow/limitless-backend
 
 
 ### Login Page
-![one](/img/wireframes/1.png)
+![one](./img/wireframes/1.png)
 
 ### Register Up
-![two](/img/wireframes/2.png)
+![two](./img/wireframes/2.png)
 
 ### Feed
-![three](/img/wireframes/3.png)
+![three](./img/wireframes/3.png)
 
 ### Show
-![four](/img/wireframes/4.png)
+![four](./img/wireframes/4.png)
 
 
 
