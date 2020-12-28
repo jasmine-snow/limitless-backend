@@ -66,13 +66,13 @@ https://github.com/jasmine-snow/limitless-backend
 ![one](./img/screenshots1.png)
 
 ### Register Up
-![two](./img/screenshots1.png)
+![two](./img/screenshots2.png)
 
 ### Feed
-![three](./img/screenshots1.png)
+![three](./img/screenshots3.png)
 
 ### Show
-![four](./img/screenshots1.png)
+![four](./img/screenshots4.png)
 
 
 
